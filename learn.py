@@ -1,3 +1,5 @@
+# sklearn 文本分类学习代码：
+# http://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html
 # first extract the 20 news_group dataset to /scikit_learn_data
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import CountVectorizer
