@@ -20,14 +20,7 @@ def loaddataset(file_name):
 
 
 def cutdata(dataMat):
-    lines = []
-    for line in dataMat:
-        kv = ' '.join(jieba.cut(line))
-        # kv = jieba.cut(line)
-        # print(kv)
-        lines.append(kv)
-    return lines
-
+    return [' '.join(jieba.cut(line)) for line in dataMat]
 
 # 载入训练集
 labelMat, dataMat = loaddataset('train.txt')
@@ -42,5 +35,6 @@ X_train_counts = count_vect.fit_transform(dataMat)
 # 计算tf-idf矩阵
 tfidf_transformer = TfidfTransformer();
 X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+print(X_train_tfidf.shape)
 
 # TODO 实现SVM分类
